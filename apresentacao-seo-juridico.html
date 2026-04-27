@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Planejamento Estratégico de SEO — Diagnóstico Jurídico Empresarial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  /* ============== RESET & BASE ============== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  :root {
+    --black: #0a0a0a;
+    --ink: #141414;
+    --graphite: #2a2a2d;
+    --slate: #5a5a60;
+    --mute: #8a8a90;
+    --line: #e6e3dc;
+    --offwhite: #f6f3ec;
+    --paper: #fbf9f4;
+    --white: #ffffff;
+    --wine: #6b1a2b;
+    --wine-soft: #8a2638;
+    --gold: #b8924d;
+    --gold-soft: #c9a767;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ============== LAYOUT ============== */
+  .deck { width: 100%; }
+  section.slide {
+    width: 100%;
+    padding: clamp(72px, 10vw, 140px) clamp(24px, 6vw, 100px);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  section.slide.dark {
+    background: linear-gradient(180deg, #0a0a0a 0%, #161618 100%);
+    color: var(--offwhite);
+    border-bottom: none;
+  }
+  .container { max-width: 1240px; margin: 0 auto; position: relative; z-index: 2; }
+
+  /* ============== TYPO ============== */
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+  h1 { font-size: clamp(2.4rem, 5.5vw, 4.6rem); }
+  h2 { font-size: clamp(1.9rem, 3.6vw, 3.1rem); }
+  h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); }
+  h4 { font-size: 1.1rem; }
+  p  { font-size: clamp(0.98rem, 1.05vw, 1.06rem); color: var(--graphite); }
+  .dark p, .dark li { color: #d6d2c8; }
+  .dark h1, .dark h2, .dark h3, .dark h4 { color: var(--paper); }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--wine);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: ""; width: 32px; height: 1px; background: var(--wine); display: inline-block;
+  }
+  .dark .eyebrow { color: var(--gold-soft); }
+  .dark .eyebrow::before { background: var(--gold-soft); }
+
+  .lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+    color: var(--graphite);
+    line-height: 1.5;
+    max-width: 780px;
+  }
+  .dark .lede { color: #cfcabd; }
+
+  .section-title {
+    display: flex; align-items: baseline; gap: 18px; margin-bottom: 18px;
+  }
+  .section-num {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--mute);
+  }
+  .dark .section-num { color: #8d877a; }
+
+  .accent { color: var(--wine); }
+  .dark .accent { color: var(--gold-soft); }
+
+  /* ============== HERO / CAPA ============== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(184,146,77,0.08), transparent 55%),
+      radial-gradient(ellipse at 10% 90%, rgba(107,26,43,0.06), transparent 60%),
+      linear-gradient(180deg, #0a0a0a 0%, #131316 100%);
+    color: var(--paper);
+  }
+  .hero .container { width: 100%; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(246,243,236,0.15);
+    padding-top: 28px;
+    margin-top: 80px;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9a9489;
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.5vw, 5.4rem);
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    max-width: 1100px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-soft);
+    font-weight: 500;
+  }
+  .hero-sub {
+    font-size: clamp(1.1rem, 1.4vw, 1.35rem);
+    color: #c9c3b6;
+    max-width: 720px;
+    margin-top: 28px;
+    font-weight: 300;
+  }
+  .hero-quote {
+    margin-top: 48px;
+    padding: 28px 0 28px 32px;
+    border-left: 2px solid var(--gold-soft);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    color: #e8e3d6;
+    max-width: 880px;
+    line-height: 1.5;
+  }
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--serif);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--paper);
+    font-size: 1.1rem;
+  }
+  .brand-mark .dot {
+    width: 8px; height: 8px; background: var(--gold-soft); border-radius: 50%;
+  }
+
+  /* ============== INTRO BLOCK ============== */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: clamp(40px, 6vw, 100px);
+    align-items: start;
+  }
+  .insight-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 44px;
+    position: relative;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .insight-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 56px;
+    background: var(--wine);
+  }
+  .insight-card .label {
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .insight-card .quote {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .insight-card .quote span { color: var(--wine); font-style: italic; }
+
+  /* ============== COMPARISON ============== */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 60px;
+  }
+  .compare-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 44px 40px;
+    border-radius: 4px;
+    transition: all 0.5s cubic-bezier(.2,.7,.3,1);
+    position: relative;
+  }
+  .compare-card.national {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .compare-card .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    color: var(--slate);
+    border-radius: 999px;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .compare-card.national .tag {
+    border-color: rgba(246,243,236,0.25);
+    color: var(--gold-soft);
+  }
+  .compare-card h3 { font-size: 2rem; margin-bottom: 8px; }
+  .compare-card.national h3 { color: var(--paper); }
+  .compare-card .sub { font-size: 0.95rem; color: var(--mute); margin-bottom: 28px; }
+  .compare-card.national .sub { color: #a09a8c; }
+  .compare-card ul { list-style: none; }
+  .compare-card li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 14px;
+    font-size: 0.97rem;
+    color: var(--graphite);
+  }
+  .compare-card.national li {
+    border-color: rgba(246,243,236,0.1);
+    color: #d6d2c8;
+  }
+  .compare-card li:last-child { border-bottom: none; }
+  .compare-card li .ic {
+    width: 22px; height: 22px; flex-shrink: 0;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    background: var(--offwhite); color: var(--wine);
+    font-weight: 700;
+  }
+  .compare-card.national li .ic {
+    background: rgba(184,146,77,0.15); color: var(--gold-soft);
+  }
+  .compare-card:hover { transform: translateY(-4px); box-shadow: 0 24px 60px -28px rgba(0,0,0,0.2); }
+
+  .compare-conclusion {
+    margin-top: 44px;
+    padding: 36px;
+    background: var(--offwhite);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* ============== SITE INSTITUCIONAL ============== */
+  .inst-banner {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 50px 44px;
+    border-radius: 4px;
+    margin-bottom: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .inst-banner::after {
+    content: "";
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(184,146,77,0.12), transparent 70%);
+  }
+  .inst-banner .quote {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+    line-height: 1.5;
+    max-width: 900px;
+    position: relative; z-index: 2;
+    color: var(--paper);
+  }
+  .inst-banner .quote span { color: var(--gold-soft); font-style: italic; }
+  .inst-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+  .inst-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 28px 26px;
+    border-radius: 4px;
+    transition: all 0.35s ease;
+    position: relative;
+  }
+  .inst-card .num {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--wine);
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .inst-card h4 {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .inst-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--graphite);
+    box-shadow: 0 18px 40px -20px rgba(0,0,0,0.15);
+  }
+  .inst-explainer {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 50px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .inst-explainer .col-left p {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: var(--graphite);
+  }
+  .inst-explainer .col-left p strong {
+    color: var(--ink); font-weight: 600;
+  }
+  .impact-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 1.7vw, 1.6rem);
+    color: var(--ink);
+    line-height: 1.45;
+    padding-left: 28px;
+    border-left: 2px solid var(--wine);
+  }
+  .impact-quote span { color: var(--wine); font-weight: 500; }
+
+  /* ============== FUNNEL OPPORTUNITIES ============== */
+  .funnel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .funnel-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 32px 28px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  .funnel-card .lvl {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .funnel-card h4 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    margin-bottom: 22px;
+    color: var(--ink);
+  }
+  .funnel-card .stage-bar {
+    height: 4px; width: 40%;
+    background: var(--line);
+    border-radius: 2px;
+    margin-bottom: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .funnel-card .stage-bar::after {
+    content: ""; position: absolute; left:0; top:0; height:100%;
+    background: var(--wine);
+  }
+  .funnel-card[data-fill="25"] .stage-bar::after { width: 25%; }
+  .funnel-card[data-fill="50"] .stage-bar::after { width: 50%; }
+  .funnel-card[data-fill="75"] .stage-bar::after { width: 75%; }
+  .funnel-card[data-fill="100"] .stage-bar::after { width: 100%; background: var(--gold); }
+  .funnel-card ul { list-style: none; }
+  .funnel-card li {
+    font-size: 0.92rem;
+    color: var(--graphite);
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line);
+    line-height: 1.4;
+  }
+  .funnel-card li:last-child { border-bottom: none; }
+  .funnel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px -25px rgba(0,0,0,0.18);
+    border-color: var(--graphite);
+  }
+
+  /* ============== KEYWORDS TABLE ============== */
+  .kw-wrap {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+  .kw-table-wrap {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  table.kw {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table.kw th, table.kw td {
+    text-align: left;
+    padding: 18px 22px;
+    font-size: 0.93rem;
+    border-bottom: 1px solid var(--line);
+  }
+  table.kw thead th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-bottom: none;
+  }
+  table.kw tbody tr {
+    transition: background 0.25s ease;
+  }
+  table.kw tbody tr:hover { background: var(--offwhite); }
+  table.kw tbody tr:last-child td { border-bottom: none; }
+  table.kw td.kw-name {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .pri {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .pri.alta { background: rgba(107,26,43,0.1); color: var(--wine); }
+  .pri.media { background: rgba(184,146,77,0.18); color: #8a6c2c; }
+  .pri.estrat { background: var(--ink); color: var(--gold-soft); }
+
+  .chart-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 32px;
+    border-radius: 4px;
+    height: 100%;
+  }
+  .chart-card h4 {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .chart-card .chart-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 22px;
+    line-height: 1.3;
+  }
+  .chart-wrap { position: relative; height: 320px; }
+
+  /* ============== CLUSTERS ============== */
+  .clusters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .cluster {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 32px;
+    transition: all 0.4s ease;
+    display: flex; flex-direction: column;
+  }
+  .cluster .head {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+  }
+  .cluster .pillar {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--wine);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .cluster h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .cluster .obj {
+    font-size: 0.88rem;
+    color: var(--slate);
+    margin-top: 12px;
+    font-style: italic;
+  }
+  .cluster ul { list-style: none; }
+  .cluster li {
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.94rem;
+    color: var(--graphite);
+    line-height: 1.45;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .cluster li::before {
+    content: "→";
+    color: var(--wine);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .cluster li:last-child { border-bottom: none; }
+  .cluster:hover {
+    transform: translateY(-5px);
+    border-color: var(--graphite);
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.2);
+  }
+  .cluster.featured {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .cluster.featured h3 { color: var(--paper); }
+  .cluster.featured .pillar { color: var(--gold-soft); }
+  .cluster.featured .obj { color: #b3ad9e; }
+  .cluster.featured .head { border-color: rgba(246,243,236,0.15); }
+  .cluster.featured li { color: #d6d2c8; border-color: rgba(246,243,236,0.1); }
+  .cluster.featured li::before { color: var(--gold-soft); }
+
+  /* ============== TIMELINE 90 DAYS ============== */
+  .timeline {
+    position: relative;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 36px; left: 0; right: 0;
+    height: 1px;
+    background: rgba(246,243,236,0.2);
+  }
+  .phase {
+    padding: 0 22px;
+    position: relative;
+  }
+  .phase:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: rgba(246,243,236,0.08);
+  }
+  .phase .node {
+    width: 14px; height: 14px;
+    background: var(--gold-soft);
+    border-radius: 50%;
+    position: relative;
+    margin: 28px 0 0 0;
+    z-index: 2;
+    box-shadow: 0 0 0 5px #161618;
+  }
+  .phase .days {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    color: var(--paper);
+    margin-top: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .phase .label {
+    font-size: 0.74rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-top: 2px;
+    font-weight: 600;
+  }
+  .phase ul {
+    list-style: none;
+    margin-top: 22px;
+  }
+  .phase li {
+    font-size: 0.92rem;
+    color: #c8c3b6;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(246,243,236,0.07);
+    line-height: 1.45;
+  }
+  .phase li:last-child { border-bottom: none; }
+
+  /* ============== ARQUITETURA ============== */
+  .arch-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .arch-tree {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 44px 40px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    font-size: 0.95rem;
+    line-height: 2;
+  }
+  .arch-tree .dir { color: var(--gold-soft); }
+  .arch-tree .root { color: #c8c3b6; opacity: .7; }
+  .arch-tree .file { color: #d6d2c8; }
+  .arch-tree .pillar-line { color: var(--paper); font-weight: 600; }
+  .arch-tree .indent { color: rgba(246,243,236,0.2); }
+
+  .arch-notes h3 { margin-bottom: 16px; }
+  .arch-notes p { margin-bottom: 16px; }
+  .arch-notes .pillar-list {
+    list-style: none;
+    margin-top: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .arch-notes .pillar-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex; gap: 18px; align-items: baseline;
+    font-size: 0.96rem;
+  }
+  .arch-notes .pillar-list li:last-child { border-bottom: none; }
+  .arch-notes .pillar-list .tag-mini {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--wine);
+    font-weight: 600;
+    flex-shrink: 0;
+    width: 90px;
+  }
+
+  /* ============== FINAL / CTA ============== */
+  .final {
+    text-align: center;
+    padding-top: clamp(100px, 14vw, 180px);
+    padding-bottom: clamp(100px, 14vw, 180px);
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(184,146,77,0.12), transparent 50%),
+      linear-gradient(180deg, #0a0a0a 0%, #14141a 100%);
+  }
+  .final-quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.6rem);
+    line-height: 1.4;
+    color: var(--paper);
+    max-width: 1000px;
+    margin: 0 auto;
+    letter-spacing: -0.01em;
+  }
+  .final-quote span { color: var(--gold-soft); }
+  .final-divider {
+    width: 60px; height: 1px;
+    background: var(--gold-soft);
+    margin: 50px auto;
+  }
+  .cta-block {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .cta-block .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .cta-block p {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    color: #d6d2c8;
+    line-height: 1.5;
+  }
+
+  /* ============== ANIMATIONS ============== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal.delay-1 { transition-delay: 0.1s; }
+  .reveal.delay-2 { transition-delay: 0.2s; }
+  .reveal.delay-3 { transition-delay: 0.3s; }
+  .reveal.delay-4 { transition-delay: 0.4s; }
+
+  /* ============== RESPONSIVE ============== */
+  @media (max-width: 980px) {
+    .intro-grid, .inst-explainer, .kw-wrap, .arch-wrap { grid-template-columns: 1fr; }
+    .compare, .clusters, .timeline { grid-template-columns: 1fr; }
+    .funnel { grid-template-columns: 1fr 1fr; }
+    .timeline::before { display: none; }
+    .phase { padding: 28px 0; border-bottom: 1px solid rgba(246,243,236,0.1); }
+    .phase:not(:last-child)::after { display: none; }
+    .phase .node { margin-top: 0; }
+    .hero-meta { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .inst-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .funnel, .inst-grid { grid-template-columns: 1fr; }
+    table.kw th, table.kw td { padding: 14px 16px; font-size: 0.85rem; }
+    .insight-card, .compare-card, .cluster, .arch-tree { padding: 28px 24px; }
+    .inst-banner { padding: 36px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ============== 1. CAPA ============== -->
+  <section class="slide hero dark">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="brand-mark reveal in">
+            <span class="dot"></span>
+            <span>Estratégia Digital · Jurídico Empresarial</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="eyebrow reveal in delay-1">Documento Estratégico · 2026</div>
+          <h1 class="reveal in delay-1">
+            Planejamento <em>Estratégico</em><br/>
+            de SEO
+          </h1>
+          <p class="hero-sub reveal in delay-2">
+            Diagnóstico Jurídico Empresarial, Compliance Trabalhista
+            e Prevenção de Riscos para Empresas.
+          </p>
+
+          <div class="hero-quote reveal in delay-3">
+            “Não vamos disputar apenas por <em style="color: var(--gold-soft);">‘advogado’</em>.
+            Vamos capturar empresas <em style="color: var(--gold-soft);">antes</em>
+            do problema virar prejuízo.”
+          </div>
+
+          <div class="hero-meta reveal in delay-4">
+            <span>Confidencial · Apresentação ao Cliente</span>
+            <span>09 capítulos · 90 dias de execução</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 2. DIAGNÓSTICO DO CENÁRIO ============== -->
+  <section class="slide">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">02 — Diagnóstico</span>
+      </div>
+      <h2 class="reveal">O cenário atual da<br/>busca jurídica empresarial.</h2>
+      <p class="lede reveal" style="margin-top: 24px;">
+        O serviço não pode depender exclusivamente da busca direta por “diagnóstico jurídico empresarial”.
+        Esse termo, embora preciso, ainda tem volume baixo e demanda em formação.
+      </p>
+
+      <div class="intro-grid" style="margin-top: 70px;">
+        <div class="reveal">
+          <h3 style="margin-bottom: 18px;">O empresário não pesquisa pelo nome do serviço.</h3>
+          <p style="margin-bottom: 18px;">
+            Ele pesquisa pela dor que está sentindo — pelo medo de perder dinheiro,
+            pela multa que ouviu falar, pelo processo do concorrente, pelo passivo que aparece na due diligence.
+          </p>
+          <p>
+            Por isso, a estratégia não pode partir do nosso vocabulário técnico.
+            Ela precisa partir do <strong style="color: var(--ink);">vocabulário do problema</strong> —
+            e conduzir o leitor até o serviço certo.
+          </p>
+        </div>
+
+        <div class="insight-card reveal delay-2">
+          <div class="label">Insight Central</div>
+          <div class="quote">
+            “O mercado não busca pelo <span>nome técnico</span> do serviço.
+            Ele busca pela <span>dor</span>: risco, multa, passivo,
+            compliance e auditoria.”
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 3. SEO NACIONAL VS LOCAL ============== -->
+  <section class="slide" style="background: var(--offwhite);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">03 — Posicionamento</span>
+      </div>
+      <h2 class="reveal">SEO Nacional <span class="accent">vs.</span> SEO Local</h2>
+      <p class="lede reveal" style="margin-top: 24px;">
+        Duas dinâmicas diferentes. Dois horizontes de retorno.
+        Uma estratégia única que combina os dois.
+      </p>
+
+      <div class="compare">
+        <div class="compare-card reveal">
+          <span class="tag">Estratégia Local</span>
+          <h3>SEO Local</h3>
+          <p class="sub">Tração inicial · Curto prazo · Conversão direta</p>
+          <ul>
+            <li><span class="ic">↑</span> Mais rápido para ranquear</li>
+            <li><span class="ic">↓</span> Menor concorrência</li>
+            <li><span class="ic">·</span> Volume limitado por região</li>
+            <li><span class="ic">·</span> Escala menor</li>
+            <li><span class="ic">+</span> Alta intenção de contratação imediata</li>
+          </ul>
+        </div>
+
+        <div class="compare-card national reveal delay-2">
+          <span class="tag">Estratégia Nacional</span>
+          <h3>SEO Nacional</h3>
+          <p class="sub">Construção de autoridade · Longo prazo · Ativo digital</p>
+          <ul>
+            <li><span class="ic">↑</span> Mais competitivo</li>
+            <li><span class="ic">·</span> Demora mais para retornar</li>
+            <li><span class="ic">★</span> Maior autoridade de marca</li>
+            <li><span class="ic">★</span> Tráfego acumulado e crescente</li>
+            <li><span class="ic">★</span> Gera ativo de longo prazo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="compare-conclusion reveal">
+        “A estratégia ideal não é escolher entre local ou nacional.
+        É usar o <strong style="font-style: normal; color: var(--wine);">local para tração inicial</strong>
+        e o <strong style="font-style: normal; color: var(--wine);">nacional para construir autoridade</strong>.”
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 3.1 IMPORTÂNCIA DO SITE INSTITUCIONAL ============== -->
+  <section class="slide">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">03.1 — Ativo digital</span>
+      </div>
+      <h2 class="reveal">A importância do<br/>site institucional.</h2>
+      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
+        O site não é uma página bonita. É um <strong style="font-style: normal; color: var(--ink);">ativo digital estratégico</strong>
+        — talvez o mais subestimado do escritório.
+      </p>
+
+      <div class="inst-banner reveal">
+        <div class="quote">
+          “Para um escritório jurídico, o site institucional funciona como uma
+          <span>vitrine de autoridade, credibilidade e posicionamento</span>
+          — especialmente porque a OAB não permite ofertas agressivas,
+          promessas de resultado ou comunicação apelativa.”
+        </div>
+      </div>
+
+      <div class="inst-grid">
+        <div class="inst-card reveal"><span class="num">01</span><h4>Gera autoridade institucional para o escritório</h4></div>
+        <div class="inst-card reveal delay-1"><span class="num">02</span><h4>Aumenta a confiança antes do primeiro contato</h4></div>
+        <div class="inst-card reveal delay-2"><span class="num">03</span><h4>Organiza a percepção de especialidade</h4></div>
+        <div class="inst-card reveal delay-3"><span class="num">04</span><h4>Apresenta áreas de atuação com profundidade</h4></div>
+        <div class="inst-card reveal"><span class="num">05</span><h4>Funciona como catálogo digital dos serviços</h4></div>
+        <div class="inst-card reveal delay-1"><span class="num">06</span><h4>Mostra experiências e tipos de casos sem promessas</h4></div>
+        <div class="inst-card reveal delay-2"><span class="num">07</span><h4>Apoia campanhas de tráfego pago e SEO</h4></div>
+        <div class="inst-card reveal delay-3"><span class="num">08</span><h4>Cria ativo próprio — não depende de redes sociais</h4></div>
+      </div>
+
+      <div class="inst-explainer">
+        <div class="col-left reveal">
+          <p>
+            Enquanto uma <strong>landing page</strong> é focada em conversão direta,
+            o <strong>site institucional constrói percepção de valor</strong>.
+          </p>
+          <p>
+            Ele ajuda o empresário a entender <strong>quem é o escritório</strong>,
+            <strong>quais problemas ele resolve</strong>, qual é sua <strong>visão de atuação</strong>
+            e por que pode confiar — antes mesmo de solicitar um diagnóstico.
+          </p>
+        </div>
+        <div class="col-right reveal delay-2">
+          <div class="impact-quote">
+            “No jurídico, onde não se pode vender com promessa agressiva,
+            <span>autoridade e clareza se tornam os principais mecanismos de conversão</span>.”
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 4. MAPA DE OPORTUNIDADES ============== -->
+  <section class="slide" style="background: var(--offwhite);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">04 — Intenção de busca</span>
+      </div>
+      <h2 class="reveal">Mapa de oportunidades<br/>por estágio de funil.</h2>
+      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
+        Cada termo carrega uma intenção diferente.
+        Capturar todas significa estar presente em cada momento da decisão.
+      </p>
+
+      <div class="funnel">
+        <div class="funnel-card reveal" data-fill="25">
+          <div class="lvl">Topo de funil</div>
+          <h4>Reconhecimento da dor</h4>
+          <div class="stage-bar"></div>
+          <ul>
+            <li>riscos trabalhistas empresa</li>
+            <li>passivo trabalhista o que é</li>
+            <li>problemas jurídicos empresa</li>
+            <li>riscos legais empresa</li>
+          </ul>
+        </div>
+
+        <div class="funnel-card reveal delay-1" data-fill="50">
+          <div class="lvl">Meio de funil</div>
+          <h4>Busca por solução</h4>
+          <div class="stage-bar"></div>
+          <ul>
+            <li>compliance trabalhista</li>
+            <li>auditoria trabalhista</li>
+            <li>consultoria trabalhista empresa</li>
+            <li>revisão de contratos empresa</li>
+          </ul>
+        </div>
+
+        <div class="funnel-card reveal delay-2" data-fill="75">
+          <div class="lvl">Fundo de funil</div>
+          <h4>Decisão de contratação</h4>
+          <div class="stage-bar"></div>
+          <ul>
+            <li>advogado trabalhista empresarial</li>
+            <li>escritório direito empresarial</li>
+            <li>consultoria jurídica empresa preço</li>
+            <li>advogado para empresa mensal</li>
+          </ul>
+        </div>
+
+        <div class="funnel-card reveal delay-3" data-fill="100">
+          <div class="lvl">Long tail</div>
+          <h4>Dúvidas específicas</h4>
+          <div class="stage-bar"></div>
+          <ul>
+            <li>como evitar processo trabalhista na empresa</li>
+            <li>como reduzir passivo trabalhista</li>
+            <li>empresa pode ser processada por funcionário?</li>
+            <li>contrato de trabalho errado pode gerar multa?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 5. KEYWORDS E POTENCIAL ============== -->
+  <section class="slide">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">05 — Volume e prioridade</span>
+      </div>
+      <h2 class="reveal">Principais keywords<br/>e potencial estimado.</h2>
+      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
+        Volume não é tudo. Cruzamos volume com intenção e prioridade
+        para definir onde investir o esforço editorial.
+      </p>
+
+      <div class="kw-wrap">
+        <div class="kw-table-wrap reveal">
+          <table class="kw">
+            <thead>
+              <tr>
+                <th>Keyword</th>
+                <th>Volume estimado</th>
+                <th>Intenção</th>
+                <th>Prioridade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="kw-name">compliance trabalhista</td>
+                <td>5.000 / mês</td>
+                <td>Solução · Educação</td>
+                <td><span class="pri alta">Alta</span></td>
+              </tr>
+              <tr>
+                <td class="kw-name">auditoria trabalhista</td>
+                <td>500 / mês</td>
+                <td>Solução · Contratação</td>
+                <td><span class="pri alta">Alta</span></td>
+              </tr>
+              <tr>
+                <td class="kw-name">passivo trabalhista o que é</td>
+                <td>50 / mês</td>
+                <td>Educação</td>
+                <td><span class="pri media">Média</span></td>
+              </tr>
+              <tr>
+                <td class="kw-name">diagnóstico jurídico empresarial</td>
+                <td>baixo volume</td>
+                <td>Conversão · Posicionamento</td>
+                <td><span class="pri estrat">Estratégica</span></td>
+              </tr>
+              <tr>
+                <td class="kw-name">riscos trabalhistas empresa</td>
+                <td>médio</td>
+                <td>Educação · Dor</td>
+                <td><span class="pri alta">Alta</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="chart-card reveal delay-2">
+          <h4>Análise comparativa</h4>
+          <div class="chart-title">Volume mensal estimado por keyword</div>
+          <div class="chart-wrap">
+            <canvas id="kwChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 6. ESTRATÉGIA DE CLUSTERS ============== -->
+  <section class="slide" style="background: var(--offwhite);">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">06 — Pilares editoriais</span>
+      </div>
+      <h2 class="reveal">Estratégia de clusters<br/>em três pilares.</h2>
+      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
+        Cada cluster é um território semântico próprio,
+        com objetivo de tráfego e conversão definidos.
+      </p>
+
+      <div class="clusters">
+        <div class="cluster reveal">
+          <div class="head">
+            <div class="pillar">Cluster 01</div>
+            <h3>Compliance Trabalhista</h3>
+            <div class="obj">Capturar volume e construir autoridade.</div>
+          </div>
+          <ul>
+            <li>O que é compliance trabalhista?</li>
+            <li>Como implementar compliance trabalhista na empresa</li>
+            <li>Empresa pequena precisa de compliance?</li>
+            <li>Erros de compliance que geram multa</li>
+          </ul>
+        </div>
+
+        <div class="cluster featured reveal delay-2">
+          <div class="head">
+            <div class="pillar">Cluster 02</div>
+            <h3>Auditoria e Diagnóstico Jurídico</h3>
+            <div class="obj">Converter demanda qualificada.</div>
+          </div>
+          <ul>
+            <li>O que é auditoria trabalhista?</li>
+            <li>Quando uma empresa precisa de auditoria jurídica?</li>
+            <li>Diagnóstico jurídico empresarial: como funciona</li>
+            <li>Como identificar riscos jurídicos ocultos</li>
+          </ul>
+        </div>
+
+        <div class="cluster reveal delay-3">
+          <div class="head">
+            <div class="pillar">Cluster 03</div>
+            <h3>Passivo e Risco Empresarial</h3>
+            <div class="obj">Capturar dor latente.</div>
+          </div>
+          <ul>
+            <li>O que é passivo trabalhista?</li>
+            <li>Como reduzir passivo trabalhista</li>
+            <li>Riscos trabalhistas que podem afetar o caixa</li>
+            <li>Checklist de riscos jurídicos para empresas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 7. PLANO DE 90 DIAS ============== -->
+  <section class="slide dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num" style="color: #8d877a;">07 — Execução</span>
+      </div>
+      <h2 class="reveal">Plano de execução<br/>em 90 dias.</h2>
+      <p class="lede reveal" style="margin-top: 24px; max-width: 760px;">
+        Da pesquisa semântica à otimização baseada em dados —
+        quatro fases sequenciais, mensuráveis e com entregas claras.
+      </p>
+
+      <div class="timeline">
+        <div class="phase reveal">
+          <div class="node"></div>
+          <div class="label">Fase 01</div>
+          <div class="days">Dias 1–15</div>
+          <ul>
+            <li>Pesquisa semântica</li>
+            <li>Arquitetura SEO</li>
+            <li>Definição dos clusters</li>
+            <li>Otimização técnica inicial</li>
+          </ul>
+        </div>
+
+        <div class="phase reveal delay-1">
+          <div class="node"></div>
+          <div class="label">Fase 02</div>
+          <div class="days">Dias 16–45</div>
+          <ul>
+            <li>Produção dos primeiros conteúdos long tail</li>
+            <li>Criação das páginas pilares</li>
+            <li>Otimização da landing principal</li>
+          </ul>
+        </div>
+
+        <div class="phase reveal delay-2">
+          <div class="node"></div>
+          <div class="label">Fase 03</div>
+          <div class="days">Dias 46–75</div>
+          <ul>
+            <li>Interlinkagem dos clusters</li>
+            <li>Otimização de títulos e metas</li>
+            <li>Páginas locais e regionais</li>
+            <li>Fortalecimento de autoridade</li>
+          </ul>
+        </div>
+
+        <div class="phase reveal delay-3">
+          <div class="node"></div>
+          <div class="label">Fase 04</div>
+          <div class="days">Dias 76–90</div>
+          <ul>
+            <li>Análise de dados</li>
+            <li>Melhoria dos conteúdos</li>
+            <li>Ajustes de conversão</li>
+            <li>Priorização dos termos com tração</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 8. ARQUITETURA ============== -->
+  <section class="slide">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">08 — Arquitetura</span>
+      </div>
+      <h2 class="reveal">Arquitetura recomendada<br/>do site.</h2>
+      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
+        Estrutura semântica que conecta páginas-pilar a conteúdos de blog,
+        construindo autoridade temática para o Google.
+      </p>
+
+      <div class="arch-wrap">
+        <div class="arch-tree reveal">
+<span class="root">/</span>  <span class="dir">site institucional</span>
+<span class="indent">├──</span> <span class="pillar-line">/diagnostico-juridico-empresarial</span>
+<span class="indent">├──</span> <span class="pillar-line">/compliance-trabalhista</span>
+<span class="indent">├──</span> <span class="pillar-line">/auditoria-trabalhista</span>
+<span class="indent">├──</span> <span class="pillar-line">/passivo-trabalhista</span>
+<span class="indent">└──</span> <span class="dir">/blog</span>
+<span class="indent">    ├──</span> <span class="file">/riscos-trabalhistas-empresa</span>
+<span class="indent">    ├──</span> <span class="file">/como-evitar-processo-trabalhista</span>
+<span class="indent">    ├──</span> <span class="file">/como-reduzir-passivo-trabalhista</span>
+<span class="indent">    └──</span> <span class="file">/checklist-riscos-juridicos</span>
+        </div>
+
+        <div class="arch-notes reveal delay-2">
+          <h3>Quatro páginas-pilar.<br/>Um blog que sustenta.</h3>
+          <p>
+            As páginas-pilar concentram autoridade e conversão.
+            O blog alimenta o topo de funil e gera links internos
+            que reforçam a relevância das páginas principais.
+          </p>
+
+          <ul class="pillar-list">
+            <li><span class="tag-mini">Pilar</span><span><strong>Diagnóstico</strong> — porta de entrada estratégica</span></li>
+            <li><span class="tag-mini">Pilar</span><span><strong>Compliance</strong> — captação por autoridade</span></li>
+            <li><span class="tag-mini">Pilar</span><span><strong>Auditoria</strong> — conversão qualificada</span></li>
+            <li><span class="tag-mini">Pilar</span><span><strong>Passivo</strong> — captura por dor latente</span></li>
+            <li><span class="tag-mini">Blog</span><span>Long tail e SEO de cauda longa</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 9. MENSAGEM FINAL ============== -->
+  <section class="slide dark final">
+    <div class="container">
+      <div class="eyebrow reveal" style="justify-content: center; display: inline-flex;">Mensagem estratégica</div>
+
+      <div class="final-quote reveal delay-1">
+        “SEO jurídico não é sobre aparecer para qualquer busca.<br/>
+        É sobre estar <span>presente no momento exato</span> em que o empresário
+        percebe que pode estar <span>perdendo dinheiro sem saber</span>.”
+      </div>
+
+      <div class="final-divider reveal delay-2"></div>
+
+      <div class="cta-block reveal delay-3">
+        <div class="label">Próximo passo</div>
+        <p>
+          Validar os clusters, priorizar as primeiras páginas
+          e iniciar a produção orientada por intenção de busca.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  /* ===== Reveal on scroll ===== */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ===== Chart.js — Volume comparison ===== */
+  window.addEventListener('load', () => {
+    const ctx = document.getElementById('kwChart');
+    if (!ctx || typeof Chart === 'undefined') return;
+
+    const data = {
+      labels: [
+        'compliance trabalhista',
+        'riscos trabalhistas empresa',
+        'auditoria trabalhista',
+        'passivo trabalhista o que é',
+        'diagnóstico jurídico empresarial'
+      ],
+      datasets: [{
+        label: 'Volume estimado / mês',
+        data: [5000, 1200, 500, 50, 20],
+        backgroundColor: [
+          '#6b1a2b',
+          '#8a2638',
+          '#b8924d',
+          '#c9a767',
+          '#2a2a2d'
+        ],
+        borderRadius: 4,
+        borderSkipped: false,
+        barThickness: 22
+      }]
+    };
+
+    new Chart(ctx, {
+      type: 'bar',
+      data,
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#0a0a0a',
+            titleColor: '#f6f3ec',
+            bodyColor: '#d6d2c8',
+            padding: 12,
+            cornerRadius: 4,
+            titleFont: { family: 'Inter', weight: '600', size: 12 },
+            bodyFont: { family: 'Inter', size: 12 },
+            callbacks: {
+              label: (ctx) => `${ctx.parsed.x.toLocaleString('pt-BR')} buscas / mês`
+            }
+          }
+        },
+        scales: {
+          x: {
+            type: 'logarithmic',
+            grid: { color: '#e6e3dc', drawBorder: false },
+            ticks: {
+              color: '#8a8a90',
+              font: { family: 'Inter', size: 11 },
+              callback: (val) => {
+                if ([10, 100, 1000, 5000].includes(val)) return val.toLocaleString('pt-BR');
+                return '';
+              }
+            }
+          },
+          y: {
+            grid: { display: false },
+            ticks: {
+              color: '#2a2a2d',
+              font: { family: 'Inter', size: 12, weight: '500' }
+            }
+          }
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
