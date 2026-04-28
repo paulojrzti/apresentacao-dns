@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Planejamento Estratégico de SEO — Diagnóstico Jurídico Empresarial</title>
+<title>Estratégia Digital — Tráfego, Autoridade e Ativo Orgânico</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -220,6 +220,112 @@
     font-weight: 500;
   }
   .insight-card .quote span { color: var(--wine); font-style: italic; }
+
+  /* ============== PRESENCA DIGITAL ATUAL ============== */
+  .presence-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 28px;
+    margin-top: 56px;
+  }
+  .presence-main {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 40px 36px;
+  }
+  .presence-main h3 {
+    margin-bottom: 18px;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+  }
+  .presence-main p {
+    color: var(--graphite);
+    margin-bottom: 16px;
+    max-width: 720px;
+  }
+  .presence-gaps {
+    list-style: none;
+    margin-top: 14px;
+  }
+  .presence-gaps li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    color: var(--graphite);
+    font-size: 0.95rem;
+  }
+  .presence-gaps li:last-child { border-bottom: none; }
+  .presence-gaps .ic {
+    color: var(--wine);
+    font-weight: 700;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+  .presence-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .presence-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 24px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .presence-card h4 {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+  }
+  .presence-card .tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+  .presence-card ul { list-style: none; }
+  .presence-card li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    color: var(--graphite);
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
+  .presence-card li:last-child { border-bottom: none; }
+  .presence-card.lp {
+    background: var(--offwhite);
+  }
+  .presence-card.site {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .presence-card.site h4 { color: var(--paper); }
+  .presence-card.site .tag { color: var(--gold-soft); }
+  .presence-card.site li {
+    color: #d6d2c8;
+    border-color: rgba(246,243,236,0.12);
+  }
+  .presence-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 45px -24px rgba(0,0,0,0.2);
+  }
+  .presence-conclusion {
+    margin-top: 26px;
+    padding: 26px 30px;
+    border-left: 3px solid var(--gold);
+    background: var(--offwhite);
+    border-radius: 2px;
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    line-height: 1.5;
+    color: var(--ink);
+    font-style: italic;
+  }
 
   /* ============== COMPARISON ============== */
   .compare {
@@ -787,8 +893,9 @@
 
   /* ============== RESPONSIVE ============== */
   @media (max-width: 980px) {
-    .intro-grid, .inst-explainer, .kw-wrap, .arch-wrap { grid-template-columns: 1fr; }
+    .intro-grid, .presence-grid, .inst-explainer, .kw-wrap, .arch-wrap { grid-template-columns: 1fr; }
     .compare, .clusters, .timeline { grid-template-columns: 1fr; }
+    .presence-compare { grid-template-columns: 1fr; }
     .funnel { grid-template-columns: 1fr 1fr; }
     .timeline::before { display: none; }
     .phase { padding: 28px 0; border-bottom: 1px solid rgba(246,243,236,0.1); }
@@ -799,10 +906,139 @@
   }
   @media (max-width: 600px) {
     .funnel, .inst-grid { grid-template-columns: 1fr; }
+    .presence-main, .presence-card { padding: 24px 20px; }
     table.kw th, table.kw td { padding: 14px 16px; font-size: 0.85rem; }
     .insight-card, .compare-card, .cluster, .arch-tree { padding: 28px 24px; }
     .inst-banner { padding: 36px 28px; }
   }
+
+  /* ============== NEW STRATEGIC MODULES ============== */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 56px;
+  }
+  .strategy-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 34px 30px;
+    transition: all .35s ease;
+  }
+  .strategy-card.dark-card {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .strategy-card .kicker {
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--wine);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .strategy-card.dark-card .kicker { color: var(--gold-soft); }
+  .strategy-card h3 { margin-bottom: 12px; }
+  .strategy-card.dark-card h3 { color: var(--paper); }
+  .strategy-card.dark-card p { color: #d6d2c8; }
+  .strategy-card:hover { transform: translateY(-4px); box-shadow: 0 22px 50px -28px rgba(0,0,0,.22); }
+  .system-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    border: 1px solid rgba(246,243,236,.12);
+  }
+  .system-step {
+    padding: 34px 28px;
+    border-right: 1px solid rgba(246,243,236,.12);
+    position: relative;
+  }
+  .system-step:last-child { border-right: none; }
+  .system-step .num {
+    color: var(--gold-soft);
+    font-family: var(--serif);
+    font-size: 2rem;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .system-step h3 { font-size: 1.35rem; margin-bottom: 12px; }
+  .system-step p { font-size: .96rem; }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 56px;
+  }
+  .metric-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 30px 26px;
+    border-radius: 4px;
+  }
+  .metric-card .big {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    color: var(--wine);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .metric-card .label {
+    font-size: .75rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 58px;
+  }
+  .roadmap-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 34px 30px;
+  }
+  .roadmap-card .period {
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--wine);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .roadmap-card ul { list-style: none; margin-top: 18px; }
+  .roadmap-card li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    color: var(--graphite);
+    font-size: .94rem;
+  }
+  .roadmap-card li:last-child { border-bottom: none; }
+  .quote-strip {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 42px 40px;
+    border-left: 3px solid var(--gold);
+    font-family: var(--serif);
+    font-size: clamp(1.25rem, 1.8vw, 1.7rem);
+    line-height: 1.45;
+    font-style: italic;
+    margin-top: 48px;
+  }
+  .quote-strip span { color: var(--gold-soft); }
+  @media (max-width: 980px) {
+    .strategy-grid, .system-flow, .metric-grid, .roadmap { grid-template-columns: 1fr; }
+    .system-step { border-right: none; border-bottom: 1px solid rgba(246,243,236,.12); }
+    .system-step:last-child { border-bottom: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -823,489 +1059,423 @@
         <div>
           <div class="eyebrow reveal in delay-1">Documento Estratégico · 2026</div>
           <h1 class="reveal in delay-1">
-            Planejamento <em>Estratégico</em><br/>
-            de SEO
+            De campanhas para um <em>sistema</em><br/>
+            de demanda e autoridade
           </h1>
           <p class="hero-sub reveal in delay-2">
-            Diagnóstico Jurídico Empresarial, Compliance Trabalhista
-            e Prevenção de Riscos para Empresas.
+            Uma evolução do site atual para potencializar o Google Ads, construir demanda inicial
+            e transformar a presença digital do escritório em um ativo que se sustenta com o tempo.
           </p>
 
           <div class="hero-quote reveal in delay-3">
-            “Não vamos disputar apenas por <em style="color: var(--gold-soft);">‘advogado’</em>.
-            Vamos capturar empresas <em style="color: var(--gold-soft);">antes</em>
-            do problema virar prejuízo.”
+            “A mídia paga compra velocidade. O site, o conteúdo e o SEO constroem
+            <em style="color: var(--gold-soft);">presença, confiança e lembrança de marca</em>
+            em todas as buscas importantes.”
           </div>
 
           <div class="hero-meta reveal in delay-4">
-            <span>Confidencial · Apresentação ao Cliente</span>
-            <span>09 capítulos · 90 dias de execução</span>
+            <span>Apresentação estratégica ao cliente</span>
+            <span>Tráfego + SEO + Branding + Ativo digital</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== 2. DIAGNÓSTICO DO CENÁRIO ============== -->
+  <!-- ============== 2. NOVO ENQUADRAMENTO ============== -->
   <section class="slide">
     <div class="container">
       <div class="section-title reveal">
-        <span class="section-num">02 — Diagnóstico</span>
+        <span class="section-num">02 — Enquadramento</span>
       </div>
-      <h2 class="reveal">O cenário atual da<br/>busca jurídica empresarial.</h2>
+      <h2 class="reveal">O objetivo não é “fazer SEO”.<br/>É fazer o tráfego render mais.</h2>
       <p class="lede reveal" style="margin-top: 24px;">
-        O serviço não pode depender exclusivamente da busca direta por “diagnóstico jurídico empresarial”.
-        Esse termo, embora preciso, ainda tem volume baixo e demanda em formação.
+        Como as campanhas no Google serão iniciadas agora, o site precisa assumir um papel maior:
+        não apenas receber cliques, mas aumentar confiança, melhorar a experiência do usuário
+        e sustentar a percepção de autoridade em cada etapa da decisão.
       </p>
 
-      <div class="intro-grid" style="margin-top: 70px;">
-        <div class="reveal">
-          <h3 style="margin-bottom: 18px;">O empresário não pesquisa pelo nome do serviço.</h3>
-          <p style="margin-bottom: 18px;">
-            Ele pesquisa pela dor que está sentindo — pelo medo de perder dinheiro,
-            pela multa que ouviu falar, pelo processo do concorrente, pelo passivo que aparece na due diligence.
-          </p>
-          <p>
-            Por isso, a estratégia não pode partir do nosso vocabulário técnico.
-            Ela precisa partir do <strong style="color: var(--ink);">vocabulário do problema</strong> —
-            e conduzir o leitor até o serviço certo.
-          </p>
-        </div>
+      <div class="strategy-grid">
+        <article class="strategy-card reveal">
+          <div class="kicker">Tração inicial</div>
+          <h3>Google Ads para capturar demanda ativa</h3>
+          <p>As campanhas colocam a marca diante de empresas que já estão pesquisando por soluções, riscos, auditorias e apoio jurídico empresarial.</p>
+        </article>
 
-        <div class="insight-card reveal delay-2">
-          <div class="label">Insight Central</div>
-          <div class="quote">
-            “O mercado não busca pelo <span>nome técnico</span> do serviço.
-            Ele busca pela <span>dor</span>: risco, multa, passivo,
-            compliance e auditoria.”
-          </div>
-        </div>
+        <article class="strategy-card dark-card reveal delay-1">
+          <div class="kicker">Potencialização</div>
+          <h3>Site e conteúdo para aumentar confiança</h3>
+          <p>Quando o clique chega, a estrutura precisa provar maturidade, clareza e autoridade antes do contato comercial.</p>
+        </article>
+
+        <article class="strategy-card reveal delay-2">
+          <div class="kicker">Ativo</div>
+          <h3>SEO para acumular valor com o tempo</h3>
+          <p>Cada página e conteúdo estratégico vira uma porta de entrada que continua trabalhando mesmo quando a verba diária da mídia acaba.</p>
+        </article>
+      </div>
+
+      <div class="quote-strip reveal delay-3">
+        “A proposta não é trocar tráfego pago por orgânico. É criar uma operação onde
+        <span>o pago acelera</span>, <span>o conteúdo educa</span> e <span>o site converte com mais autoridade</span>.”
       </div>
     </div>
   </section>
 
-  <!-- ============== 3. SEO NACIONAL VS LOCAL ============== -->
+  <!-- ============== 3. CONTEXTO DE COMPRA ============== -->
   <section class="slide" style="background: var(--offwhite);">
     <div class="container">
       <div class="section-title reveal">
-        <span class="section-num">03 — Posicionamento</span>
+        <span class="section-num">03 — Jornada de decisão</span>
       </div>
-      <h2 class="reveal">SEO Nacional <span class="accent">vs.</span> SEO Local</h2>
+      <h2 class="reveal">O cliente não decide em uma única busca.</h2>
       <p class="lede reveal" style="margin-top: 24px;">
-        Duas dinâmicas diferentes. Dois horizontes de retorno.
-        Uma estratégia única que combina os dois.
+        Antes de chamar um escritório, a empresa pesquisa o problema, compara opções,
+        valida credibilidade e tenta entender se está diante de um parceiro técnico ou apenas mais um anúncio.
       </p>
 
-      <div class="compare">
-        <div class="compare-card reveal">
-          <span class="tag">Estratégia Local</span>
-          <h3>SEO Local</h3>
-          <p class="sub">Tração inicial · Curto prazo · Conversão direta</p>
-          <ul>
-            <li><span class="ic">↑</span> Mais rápido para ranquear</li>
-            <li><span class="ic">↓</span> Menor concorrência</li>
-            <li><span class="ic">·</span> Volume limitado por região</li>
-            <li><span class="ic">·</span> Escala menor</li>
-            <li><span class="ic">+</span> Alta intenção de contratação imediata</li>
-          </ul>
-        </div>
-
-        <div class="compare-card national reveal delay-2">
-          <span class="tag">Estratégia Nacional</span>
-          <h3>SEO Nacional</h3>
-          <p class="sub">Construção de autoridade · Longo prazo · Ativo digital</p>
-          <ul>
-            <li><span class="ic">↑</span> Mais competitivo</li>
-            <li><span class="ic">·</span> Demora mais para retornar</li>
-            <li><span class="ic">★</span> Maior autoridade de marca</li>
-            <li><span class="ic">★</span> Tráfego acumulado e crescente</li>
-            <li><span class="ic">★</span> Gera ativo de longo prazo</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="compare-conclusion reveal">
-        “A estratégia ideal não é escolher entre local ou nacional.
-        É usar o <strong style="font-style: normal; color: var(--wine);">local para tração inicial</strong>
-        e o <strong style="font-style: normal; color: var(--wine);">nacional para construir autoridade</strong>.”
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== 3.1 IMPORTÂNCIA DO SITE INSTITUCIONAL ============== -->
-  <section class="slide">
-    <div class="container">
-      <div class="section-title reveal">
-        <span class="section-num">03.1 — Ativo digital</span>
-      </div>
-      <h2 class="reveal">A importância do<br/>site institucional.</h2>
-      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
-        O site não é uma página bonita. É um <strong style="font-style: normal; color: var(--ink);">ativo digital estratégico</strong>
-        — talvez o mais subestimado do escritório.
-      </p>
-
-      <div class="inst-banner reveal">
-        <div class="quote">
-          “Para um escritório jurídico, o site institucional funciona como uma
-          <span>vitrine de autoridade, credibilidade e posicionamento</span>
-          — especialmente porque a OAB não permite ofertas agressivas,
-          promessas de resultado ou comunicação apelativa.”
-        </div>
-      </div>
-
-      <div class="inst-grid">
-        <div class="inst-card reveal"><span class="num">01</span><h4>Gera autoridade institucional para o escritório</h4></div>
-        <div class="inst-card reveal delay-1"><span class="num">02</span><h4>Aumenta a confiança antes do primeiro contato</h4></div>
-        <div class="inst-card reveal delay-2"><span class="num">03</span><h4>Organiza a percepção de especialidade</h4></div>
-        <div class="inst-card reveal delay-3"><span class="num">04</span><h4>Apresenta áreas de atuação com profundidade</h4></div>
-        <div class="inst-card reveal"><span class="num">05</span><h4>Funciona como catálogo digital dos serviços</h4></div>
-        <div class="inst-card reveal delay-1"><span class="num">06</span><h4>Mostra experiências e tipos de casos sem promessas</h4></div>
-        <div class="inst-card reveal delay-2"><span class="num">07</span><h4>Apoia campanhas de tráfego pago e SEO</h4></div>
-        <div class="inst-card reveal delay-3"><span class="num">08</span><h4>Cria ativo próprio — não depende de redes sociais</h4></div>
-      </div>
-
-      <div class="inst-explainer">
-        <div class="col-left reveal">
-          <p>
-            Enquanto uma <strong>landing page</strong> é focada em conversão direta,
-            o <strong>site institucional constrói percepção de valor</strong>.
-          </p>
-          <p>
-            Ele ajuda o empresário a entender <strong>quem é o escritório</strong>,
-            <strong>quais problemas ele resolve</strong>, qual é sua <strong>visão de atuação</strong>
-            e por que pode confiar — antes mesmo de solicitar um diagnóstico.
-          </p>
-        </div>
-        <div class="col-right reveal delay-2">
-          <div class="impact-quote">
-            “No jurídico, onde não se pode vender com promessa agressiva,
-            <span>autoridade e clareza se tornam os principais mecanismos de conversão</span>.”
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== 4. MAPA DE OPORTUNIDADES ============== -->
-  <section class="slide" style="background: var(--offwhite);">
-    <div class="container">
-      <div class="section-title reveal">
-        <span class="section-num">04 — Intenção de busca</span>
-      </div>
-      <h2 class="reveal">Mapa de oportunidades<br/>por estágio de funil.</h2>
-      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
-        Cada termo carrega uma intenção diferente.
-        Capturar todas significa estar presente em cada momento da decisão.
-      </p>
-
-      <div class="funnel">
+      <div class="funnel" style="margin-top: 60px;">
         <div class="funnel-card reveal" data-fill="25">
-          <div class="lvl">Topo de funil</div>
-          <h4>Reconhecimento da dor</h4>
+          <div class="lvl">Momento 01</div>
+          <h4>Percepção do risco</h4>
           <div class="stage-bar"></div>
           <ul>
-            <li>riscos trabalhistas empresa</li>
-            <li>passivo trabalhista o que é</li>
-            <li>problemas jurídicos empresa</li>
-            <li>riscos legais empresa</li>
+            <li>A empresa percebe uma possível multa, passivo ou falha trabalhista.</li>
+            <li>Ela ainda não sabe exatamente qual serviço precisa contratar.</li>
           </ul>
         </div>
 
         <div class="funnel-card reveal delay-1" data-fill="50">
-          <div class="lvl">Meio de funil</div>
-          <h4>Busca por solução</h4>
+          <div class="lvl">Momento 02</div>
+          <h4>Busca por clareza</h4>
           <div class="stage-bar"></div>
           <ul>
-            <li>compliance trabalhista</li>
-            <li>auditoria trabalhista</li>
-            <li>consultoria trabalhista empresa</li>
-            <li>revisão de contratos empresa</li>
+            <li>Começa a pesquisar sobre compliance, auditoria, diagnóstico e prevenção.</li>
+            <li>Conteúdos bem estruturados entram como prova de domínio técnico.</li>
           </ul>
         </div>
 
         <div class="funnel-card reveal delay-2" data-fill="75">
-          <div class="lvl">Fundo de funil</div>
-          <h4>Decisão de contratação</h4>
+          <div class="lvl">Momento 03</div>
+          <h4>Validação de marca</h4>
           <div class="stage-bar"></div>
           <ul>
-            <li>advogado trabalhista empresarial</li>
-            <li>escritório direito empresarial</li>
-            <li>consultoria jurídica empresa preço</li>
-            <li>advogado para empresa mensal</li>
+            <li>O decisor olha o site, compara posicionamento e avalia confiança.</li>
+            <li>Quem aparece mais vezes parece mais preparado.</li>
           </ul>
         </div>
 
         <div class="funnel-card reveal delay-3" data-fill="100">
-          <div class="lvl">Long tail</div>
-          <h4>Dúvidas específicas</h4>
+          <div class="lvl">Momento 04</div>
+          <h4>Contato comercial</h4>
           <div class="stage-bar"></div>
           <ul>
-            <li>como evitar processo trabalhista na empresa</li>
-            <li>como reduzir passivo trabalhista</li>
-            <li>empresa pode ser processada por funcionário?</li>
-            <li>contrato de trabalho errado pode gerar multa?</li>
+            <li>A empresa chega mais educada, mais consciente e menos focada só em preço.</li>
+            <li>O site já começou a venda antes da reunião.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== 5. KEYWORDS E POTENCIAL ============== -->
+  <!-- ============== 4. SITE ATUAL ============== -->
   <section class="slide">
     <div class="container">
       <div class="section-title reveal">
-        <span class="section-num">05 — Volume e prioridade</span>
+        <span class="section-num">04 — Base existente</span>
       </div>
-      <h2 class="reveal">Principais keywords<br/>e potencial estimado.</h2>
-      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
-        Volume não é tudo. Cruzamos volume com intenção e prioridade
-        para definir onde investir o esforço editorial.
+      <h2 class="reveal">Vocês já têm um site.<br/>Agora ele precisa virar infraestrutura de crescimento.</h2>
+      <p class="lede reveal" style="margin-top: 24px;">
+        A evolução proposta não parte do zero. Ela transforma a base atual em um ativo mais forte para campanhas,
+        conteúdo, SEO, autoridade institucional e conversão qualificada.
       </p>
 
-      <div class="kw-wrap">
-        <div class="kw-table-wrap reveal">
-          <table class="kw">
-            <thead>
-              <tr>
-                <th>Keyword</th>
-                <th>Volume estimado</th>
-                <th>Intenção</th>
-                <th>Prioridade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="kw-name">compliance trabalhista</td>
-                <td>5.000 / mês</td>
-                <td>Solução · Educação</td>
-                <td><span class="pri alta">Alta</span></td>
-              </tr>
-              <tr>
-                <td class="kw-name">auditoria trabalhista</td>
-                <td>500 / mês</td>
-                <td>Solução · Contratação</td>
-                <td><span class="pri alta">Alta</span></td>
-              </tr>
-              <tr>
-                <td class="kw-name">passivo trabalhista o que é</td>
-                <td>50 / mês</td>
-                <td>Educação</td>
-                <td><span class="pri media">Média</span></td>
-              </tr>
-              <tr>
-                <td class="kw-name">diagnóstico jurídico empresarial</td>
-                <td>baixo volume</td>
-                <td>Conversão · Posicionamento</td>
-                <td><span class="pri estrat">Estratégica</span></td>
-              </tr>
-              <tr>
-                <td class="kw-name">riscos trabalhistas empresa</td>
-                <td>médio</td>
-                <td>Educação · Dor</td>
-                <td><span class="pri alta">Alta</span></td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="presence-grid">
+        <div class="presence-main reveal">
+          <h3>O papel atual do site</h3>
+          <p>
+            O site já cumpre uma função institucional importante: apresentar o escritório, organizar a presença digital
+            e servir como destino para quem busca conhecer a empresa.
+          </p>
+          <p>
+            O próximo passo é torná-lo mais estratégico para as campanhas que vão iniciar,
+            criando uma experiência mais completa para quem chega pelo Google.
+          </p>
+          <ul class="presence-gaps">
+            <li><span class="ic">•</span> Mais clareza entre problemas, soluções e áreas de atuação</li>
+            <li><span class="ic">•</span> Mais páginas de apoio para campanhas e buscas orgânicas</li>
+            <li><span class="ic">•</span> Mais prova técnica e institucional sem comunicação agressiva</li>
+            <li><span class="ic">•</span> Mais presença da marca em pesquisas relevantes do cliente</li>
+          </ul>
         </div>
 
-        <div class="chart-card reveal delay-2">
-          <h4>Análise comparativa</h4>
-          <div class="chart-title">Volume mensal estimado por keyword</div>
-          <div class="chart-wrap">
-            <canvas id="kwChart"></canvas>
-          </div>
+        <div class="presence-compare reveal delay-2">
+          <article class="presence-card lp">
+            <span class="tag">Antes</span>
+            <h4>Site como vitrine</h4>
+            <ul>
+              <li>Apresenta a empresa</li>
+              <li>Recebe visitantes</li>
+              <li>Centraliza contatos</li>
+              <li>Funciona como presença básica</li>
+            </ul>
+          </article>
+
+          <article class="presence-card site">
+            <span class="tag">Depois</span>
+            <h4>Site como ativo</h4>
+            <ul>
+              <li>Potencializa campanhas</li>
+              <li>Gera descoberta orgânica</li>
+              <li>Constrói autoridade recorrente</li>
+              <li>Apoia a decisão antes do contato</li>
+            </ul>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== 6. ESTRATÉGIA DE CLUSTERS ============== -->
+  <!-- ============== 5. SISTEMA DE CRESCIMENTO ============== -->
+  <section class="slide dark">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num" style="color: #8d877a;">05 — Sistema integrado</span>
+      </div>
+      <h2 class="reveal">O crescimento acontece quando os canais trabalham juntos.</h2>
+      <p class="lede reveal" style="margin-top: 24px;">
+        A estratégia não trata mídia, SEO e branding como frentes separadas.
+        Ela cria um ciclo: campanhas geram dados, dados orientam páginas, páginas aumentam confiança,
+        e a confiança melhora a qualidade da demanda.
+      </p>
+
+      <div class="system-flow">
+        <div class="system-step reveal">
+          <span class="num">01</span>
+          <h3>Captura</h3>
+          <p>Google Ads coloca a marca nas buscas de alta intenção e gera demanda inicial para o comercial.</p>
+        </div>
+        <div class="system-step reveal delay-1">
+          <span class="num">02</span>
+          <h3>Validação</h3>
+          <p>O site responde dúvidas, organiza autoridade e reduz insegurança antes da conversa.</p>
+        </div>
+        <div class="system-step reveal delay-2">
+          <span class="num">03</span>
+          <h3>Acúmulo</h3>
+          <p>Conteúdos e páginas estratégicas criam portas de entrada que amadurecem com o tempo.</p>
+        </div>
+        <div class="system-step reveal delay-3">
+          <span class="num">04</span>
+          <h3>Marca</h3>
+          <p>A empresa aparece repetidamente nas buscas dos clientes e se posiciona acima de concorrentes invisíveis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 6. BRANDING ============== -->
   <section class="slide" style="background: var(--offwhite);">
     <div class="container">
       <div class="section-title reveal">
-        <span class="section-num">06 — Pilares editoriais</span>
+        <span class="section-num">06 — Branding nas buscas</span>
       </div>
-      <h2 class="reveal">Estratégia de clusters<br/>em três pilares.</h2>
+      <h2 class="reveal">A marca precisa aparecer antes da reunião.</h2>
+      <p class="lede reveal" style="margin-top: 24px;">
+        No jurídico empresarial, autoridade não é só o que o escritório diz sobre si.
+        É o que o mercado encontra quando pesquisa problemas, riscos e soluções ligadas à atuação do escritório.
+      </p>
+
+      <div class="inst-banner reveal" style="margin-top: 56px;">
+        <div class="quote">
+          “Quando um concorrente aparece apenas no anúncio e a sua marca aparece no anúncio,
+          no site, nos conteúdos e nas buscas de validação, a percepção muda.
+          <span>Você não parece só uma opção. Parece referência.</span>”
+        </div>
+      </div>
+
+      <div class="inst-grid">
+        <div class="inst-card reveal"><span class="num">01</span><h4>Mais lembrança de marca durante a jornada de pesquisa</h4></div>
+        <div class="inst-card reveal delay-1"><span class="num">02</span><h4>Mais autoridade percebida frente a concorrentes ausentes</h4></div>
+        <div class="inst-card reveal delay-2"><span class="num">03</span><h4>Mais confiança antes do primeiro contato comercial</h4></div>
+        <div class="inst-card reveal delay-3"><span class="num">04</span><h4>Mais força para sustentar uma venda consultiva</h4></div>
+      </div>
+
+      <div class="impact-quote reveal" style="margin-top: 54px;">
+        “A vantagem não é apenas ranquear. É ocupar mentalmente a categoria
+        quando o cliente está tentando entender quem realmente domina o assunto.”
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 7. PÁGINAS E CONTEÚDO ============== -->
+  <section class="slide">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-num">07 — Ativo editorial</span>
+      </div>
+      <h2 class="reveal">O conteúdo deixa de ser postagem.<br/>Vira biblioteca de autoridade.</h2>
       <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
-        Cada cluster é um território semântico próprio,
-        com objetivo de tráfego e conversão definidos.
+        Em vez de revelar uma lista tática de palavras-chave, a apresentação deve mostrar os territórios de autoridade
+        que sustentam tráfego, confiança e demanda ao longo do tempo.
       </p>
 
       <div class="clusters">
         <div class="cluster reveal">
           <div class="head">
-            <div class="pillar">Cluster 01</div>
-            <h3>Compliance Trabalhista</h3>
-            <div class="obj">Capturar volume e construir autoridade.</div>
+            <div class="pillar">Pilar 01</div>
+            <h3>Risco e prevenção empresarial</h3>
+            <div class="obj">Entrar na jornada quando o cliente percebe que pode estar exposto.</div>
           </div>
           <ul>
-            <li>O que é compliance trabalhista?</li>
-            <li>Como implementar compliance trabalhista na empresa</li>
-            <li>Empresa pequena precisa de compliance?</li>
-            <li>Erros de compliance que geram multa</li>
+            <li>Conteúdos que explicam riscos antes de virarem prejuízo</li>
+            <li>Materiais para educar empresários e gestores</li>
+            <li>Abordagem consultiva, sem promessa agressiva</li>
           </ul>
         </div>
 
         <div class="cluster featured reveal delay-2">
           <div class="head">
-            <div class="pillar">Cluster 02</div>
-            <h3>Auditoria e Diagnóstico Jurídico</h3>
-            <div class="obj">Converter demanda qualificada.</div>
+            <div class="pillar">Pilar 02</div>
+            <h3>Diagnóstico, auditoria e compliance</h3>
+            <div class="obj">Conectar a dor percebida ao serviço que resolve o problema.</div>
           </div>
           <ul>
-            <li>O que é auditoria trabalhista?</li>
-            <li>Quando uma empresa precisa de auditoria jurídica?</li>
-            <li>Diagnóstico jurídico empresarial: como funciona</li>
-            <li>Como identificar riscos jurídicos ocultos</li>
+            <li>Páginas que explicam metodologia, escopo e valor</li>
+            <li>Conteúdos que reduzem dúvidas antes da reunião</li>
+            <li>Prova técnica para apoiar a decisão</li>
           </ul>
         </div>
 
         <div class="cluster reveal delay-3">
           <div class="head">
-            <div class="pillar">Cluster 03</div>
-            <h3>Passivo e Risco Empresarial</h3>
-            <div class="obj">Capturar dor latente.</div>
+            <div class="pillar">Pilar 03</div>
+            <h3>Autoridade institucional</h3>
+            <div class="obj">Fortalecer percepção de escritório preparado, moderno e confiável.</div>
           </div>
           <ul>
-            <li>O que é passivo trabalhista?</li>
-            <li>Como reduzir passivo trabalhista</li>
-            <li>Riscos trabalhistas que podem afetar o caixa</li>
-            <li>Checklist de riscos jurídicos para empresas</li>
+            <li>Conteúdos institucionais com posicionamento claro</li>
+            <li>Experiências, contextos atendidos e visão estratégica</li>
+            <li>Branding jurídico com sobriedade e credibilidade</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== 7. PLANO DE 90 DIAS ============== -->
-  <section class="slide dark">
+  <!-- ============== 8. MÉTRICAS ============== -->
+  <section class="slide" style="background: var(--offwhite);">
     <div class="container">
       <div class="section-title reveal">
-        <span class="section-num" style="color: #8d877a;">07 — Execução</span>
+        <span class="section-num">08 — Mensuração</span>
       </div>
-      <h2 class="reveal">Plano de execução<br/>em 90 dias.</h2>
-      <p class="lede reveal" style="margin-top: 24px; max-width: 760px;">
-        Da pesquisa semântica à otimização baseada em dados —
-        quatro fases sequenciais, mensuráveis e com entregas claras.
+      <h2 class="reveal">Medir não só clique.<br/>Medir construção de ativo.</h2>
+      <p class="lede reveal" style="margin-top: 24px;">
+        A leitura correta separa resultado imediato de crescimento composto.
+        O Google Ads mostra velocidade; o SEO, o conteúdo e o site mostram presença, recorrência e autoridade acumulada.
       </p>
 
-      <div class="timeline">
-        <div class="phase reveal">
-          <div class="node"></div>
-          <div class="label">Fase 01</div>
-          <div class="days">Dias 1–15</div>
-          <ul>
-            <li>Pesquisa semântica</li>
-            <li>Arquitetura SEO</li>
-            <li>Definição dos clusters</li>
-            <li>Otimização técnica inicial</li>
-          </ul>
+      <div class="metric-grid">
+        <div class="metric-card reveal">
+          <div class="label">Curto prazo</div>
+          <div class="big">01</div>
+          <p>Leads e contatos vindos das campanhas iniciais.</p>
         </div>
-
-        <div class="phase reveal delay-1">
-          <div class="node"></div>
-          <div class="label">Fase 02</div>
-          <div class="days">Dias 16–45</div>
-          <ul>
-            <li>Produção dos primeiros conteúdos long tail</li>
-            <li>Criação das páginas pilares</li>
-            <li>Otimização da landing principal</li>
-          </ul>
+        <div class="metric-card reveal delay-1">
+          <div class="label">Eficiência</div>
+          <div class="big">02</div>
+          <p>Taxa de conversão das páginas que recebem tráfego pago.</p>
         </div>
-
-        <div class="phase reveal delay-2">
-          <div class="node"></div>
-          <div class="label">Fase 03</div>
-          <div class="days">Dias 46–75</div>
-          <ul>
-            <li>Interlinkagem dos clusters</li>
-            <li>Otimização de títulos e metas</li>
-            <li>Páginas locais e regionais</li>
-            <li>Fortalecimento de autoridade</li>
-          </ul>
+        <div class="metric-card reveal delay-2">
+          <div class="label">Marca</div>
+          <div class="big">03</div>
+          <p>Crescimento de buscas pela marca e recorrência de presença.</p>
         </div>
+        <div class="metric-card reveal delay-3">
+          <div class="label">Ativo</div>
+          <div class="big">04</div>
+          <p>Visibilidade orgânica em temas estratégicos ao longo dos meses.</p>
+        </div>
+      </div>
 
-        <div class="phase reveal delay-3">
-          <div class="node"></div>
-          <div class="label">Fase 04</div>
-          <div class="days">Dias 76–90</div>
-          <ul>
-            <li>Análise de dados</li>
-            <li>Melhoria dos conteúdos</li>
-            <li>Ajustes de conversão</li>
-            <li>Priorização dos termos com tração</li>
-          </ul>
+      <div class="chart-card reveal" style="margin-top: 56px;">
+        <h4>Leitura estratégica</h4>
+        <div class="chart-title">Demanda imediata + valor acumulado</div>
+        <div class="chart-wrap">
+          <canvas id="growthChart"></canvas>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============== 8. ARQUITETURA ============== -->
+  <!-- ============== 9. PLANO ============== -->
   <section class="slide">
     <div class="container">
       <div class="section-title reveal">
-        <span class="section-num">08 — Arquitetura</span>
+        <span class="section-num">09 — Plano executivo</span>
       </div>
-      <h2 class="reveal">Arquitetura recomendada<br/>do site.</h2>
-      <p class="lede reveal" style="margin-top: 24px; margin-bottom: 60px;">
-        Estrutura semântica que conecta páginas-pilar a conteúdos de blog,
-        construindo autoridade temática para o Google.
+      <h2 class="reveal">Plano por ondas:<br/>ativar, aprender e consolidar.</h2>
+      <p class="lede reveal" style="margin-top: 24px;">
+        O foco não é prometer SEO maduro em 90 dias. É criar a base para as campanhas iniciarem fortes,
+        gerar os primeiros sinais de demanda e construir um ativo que amadurece com consistência.
       </p>
 
-      <div class="arch-wrap">
-        <div class="arch-tree reveal">
-<span class="root">/</span>  <span class="dir">site institucional</span>
-<span class="indent">├──</span> <span class="pillar-line">/diagnostico-juridico-empresarial</span>
-<span class="indent">├──</span> <span class="pillar-line">/compliance-trabalhista</span>
-<span class="indent">├──</span> <span class="pillar-line">/auditoria-trabalhista</span>
-<span class="indent">├──</span> <span class="pillar-line">/passivo-trabalhista</span>
-<span class="indent">└──</span> <span class="dir">/blog</span>
-<span class="indent">    ├──</span> <span class="file">/riscos-trabalhistas-empresa</span>
-<span class="indent">    ├──</span> <span class="file">/como-evitar-processo-trabalhista</span>
-<span class="indent">    ├──</span> <span class="file">/como-reduzir-passivo-trabalhista</span>
-<span class="indent">    └──</span> <span class="file">/checklist-riscos-juridicos</span>
-        </div>
-
-        <div class="arch-notes reveal delay-2">
-          <h3>Quatro páginas-pilar.<br/>Um blog que sustenta.</h3>
-          <p>
-            As páginas-pilar concentram autoridade e conversão.
-            O blog alimenta o topo de funil e gera links internos
-            que reforçam a relevância das páginas principais.
-          </p>
-
-          <ul class="pillar-list">
-            <li><span class="tag-mini">Pilar</span><span><strong>Diagnóstico</strong> — porta de entrada estratégica</span></li>
-            <li><span class="tag-mini">Pilar</span><span><strong>Compliance</strong> — captação por autoridade</span></li>
-            <li><span class="tag-mini">Pilar</span><span><strong>Auditoria</strong> — conversão qualificada</span></li>
-            <li><span class="tag-mini">Pilar</span><span><strong>Passivo</strong> — captura por dor latente</span></li>
-            <li><span class="tag-mini">Blog</span><span>Long tail e SEO de cauda longa</span></li>
+      <div class="roadmap">
+        <div class="roadmap-card reveal">
+          <div class="period">Onda 01 · Fundação</div>
+          <h3>Preparar a base para o tráfego</h3>
+          <ul>
+            <li>Revisão da mensagem principal</li>
+            <li>Otimização das páginas de destino</li>
+            <li>Clareza de oferta e caminhos de contato</li>
+            <li>Configuração de mensuração e leitura de dados</li>
           </ul>
         </div>
+
+        <div class="roadmap-card reveal delay-1">
+          <div class="period">Onda 02 · Expansão</div>
+          <h3>Ampliar presença e autoridade</h3>
+          <ul>
+            <li>Criação de páginas por solução e problema</li>
+            <li>Conteúdos de autoridade para apoiar buscas</li>
+            <li>Integração dos aprendizados das campanhas</li>
+            <li>Melhoria contínua da experiência do usuário</li>
+          </ul>
+        </div>
+
+        <div class="roadmap-card reveal delay-2">
+          <div class="period">Onda 03 · Consolidação</div>
+          <h3>Transformar em ativo recorrente</h3>
+          <ul>
+            <li>Crescimento orgânico por temas estratégicos</li>
+            <li>Fortalecimento de marca nas buscas</li>
+            <li>Comparação de presença com concorrentes</li>
+            <li>Otimização por dados de tráfego e conversão</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="presence-conclusion reveal">
+        “O primeiro ciclo gera tração. Os ciclos seguintes transformam essa tração em presença, autoridade e demanda menos dependente de mídia.”
       </div>
     </div>
   </section>
 
-  <!-- ============== 9. MENSAGEM FINAL ============== -->
+  <!-- ============== 10. FINAL ============== -->
   <section class="slide dark final">
     <div class="container">
-      <div class="eyebrow reveal" style="justify-content: center; display: inline-flex;">Mensagem estratégica</div>
+      
 
       <div class="final-quote reveal delay-1">
-        “SEO jurídico não é sobre aparecer para qualquer busca.<br/>
-        É sobre estar <span>presente no momento exato</span> em que o empresário
-        percebe que pode estar <span>perdendo dinheiro sem saber</span>.”
+        “A campanha inicia a conversa.<br/>
+        O site sustenta a confiança.<br/>
+        O conteúdo cria autoridade.<br/>
+        E a marca passa a aparecer <span>toda vez que o cliente pesquisa o problema</span>.”
       </div>
 
       <div class="final-divider reveal delay-2"></div>
 
-      <div class="cta-block reveal delay-3">
-        <div class="label">Próximo passo</div>
-        <p>
-          Validar os clusters, priorizar as primeiras páginas
-          e iniciar a produção orientada por intenção de busca.
-        </p>
-      </div>
+      
     </div>
   </section>
 
@@ -1324,76 +1494,57 @@
 
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* ===== Chart.js — Volume comparison ===== */
+  /* ===== Chart.js — Growth system ===== */
   window.addEventListener('load', () => {
-    const ctx = document.getElementById('kwChart');
+    const ctx = document.getElementById('growthChart');
     if (!ctx || typeof Chart === 'undefined') return;
 
-    const data = {
-      labels: [
-        'compliance trabalhista',
-        'riscos trabalhistas empresa',
-        'auditoria trabalhista',
-        'passivo trabalhista o que é',
-        'diagnóstico jurídico empresarial'
-      ],
-      datasets: [{
-        label: 'Volume estimado / mês',
-        data: [5000, 1200, 500, 50, 20],
-        backgroundColor: [
-          '#6b1a2b',
-          '#8a2638',
-          '#b8924d',
-          '#c9a767',
-          '#2a2a2d'
-        ],
-        borderRadius: 4,
-        borderSkipped: false,
-        barThickness: 22
-      }]
-    };
-
     new Chart(ctx, {
-      type: 'bar',
-      data,
+      type: 'line',
+      data: {
+        labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6'],
+        datasets: [
+          {
+            label: 'Demanda capturada por mídia',
+            data: [18, 26, 32, 36, 38, 40],
+            borderColor: '#6b1a2b',
+            backgroundColor: 'rgba(107,26,43,0.10)',
+            tension: 0.35,
+            fill: true
+          },
+          {
+            label: 'Valor acumulado do ativo orgânico',
+            data: [2, 7, 14, 24, 36, 52],
+            borderColor: '#b8924d',
+            backgroundColor: 'rgba(184,146,77,0.12)',
+            tension: 0.35,
+            fill: true
+          }
+        ]
+      },
       options: {
-        indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { display: false },
+          legend: {
+            labels: { color: '#2a2a2d', font: { family: 'Inter', size: 12 } }
+          },
           tooltip: {
             backgroundColor: '#0a0a0a',
             titleColor: '#f6f3ec',
             bodyColor: '#d6d2c8',
             padding: 12,
-            cornerRadius: 4,
-            titleFont: { family: 'Inter', weight: '600', size: 12 },
-            bodyFont: { family: 'Inter', size: 12 },
-            callbacks: {
-              label: (ctx) => `${ctx.parsed.x.toLocaleString('pt-BR')} buscas / mês`
-            }
+            cornerRadius: 4
           }
         },
         scales: {
           x: {
-            type: 'logarithmic',
-            grid: { color: '#e6e3dc', drawBorder: false },
-            ticks: {
-              color: '#8a8a90',
-              font: { family: 'Inter', size: 11 },
-              callback: (val) => {
-                if ([10, 100, 1000, 5000].includes(val)) return val.toLocaleString('pt-BR');
-                return '';
-              }
-            }
+            grid: { color: '#e6e3dc' },
+            ticks: { color: '#8a8a90', font: { family: 'Inter', size: 11 } }
           },
           y: {
-            grid: { display: false },
-            ticks: {
-              color: '#2a2a2d',
-              font: { family: 'Inter', size: 12, weight: '500' }
-            }
+            grid: { color: '#e6e3dc' },
+            ticks: { color: '#8a8a90', font: { family: 'Inter', size: 11 } }
           }
         }
       }
